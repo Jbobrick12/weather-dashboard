@@ -129,3 +129,26 @@ function initPage() {
       renderHistory();
     }
   });
+
+  function renderHistory() {
+    historyEl.textContent = "";
+    for (let i = 0; i < searchHistory.length; i++) {
+      var pastSearches = document.createElement("input");
+      pastSearches.setAttribute("type", "text");
+      pastSearches.setAttribute("readonly", true);
+      pastSearches.setAttribute("class", "form-control d-block bg-white mb-1");
+      pastSearches.setAttribute("value", searchHistory[i]);
+      pastSearches.addEventListener("click", function () {
+        reqWeather(pastSearches.value);
+      });
+      historyEl.append(pastSearches);
+    }
+  }
+
+  renderHistory();
+  if (searchHistory.length > 0) {
+    reqWeather(searchHistory[searchHistory.length - 1]);
+  }
+}
+
+initPage();
