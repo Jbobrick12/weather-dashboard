@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>Weather Dashboard</title>
+</head>
+<body>
+      <nav class="navbar border border-dark rounded m-1 text-white" style="background-color: darkblue; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        <h1 class="navbar">The Weather Dashboard</h1>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 m-2 pb-3 text-black border border-dark rounded" style="background-color: rgb(255, 255, 255);">
+                <p class="mt-4 text-black font-weight-bold" style="font-family: Arial, sans-serif; font-size: 25px;">Search for a City:</p>
+                <div class="input-group mb-3">
+                    <input id="search-city" type="text" class="form-control" placeholder="San Francisco" aria-label="Search for City">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button" id="search-button">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+                <div id="srch-hist" class="pb-1" style="font-family: Arial, Helvetica, sans-serif;"></div>
+            </div>
+            <div class="col-lg-9">
+                <div class="row mr-0">
+                    <div class="col-lg-8 card m-2 p-4 d-none bg-primary text-white rounded shadow-lg" id="today">
+                        <div class="main-body">
+                            <h2 id="city-name" class="city-name"></h2>
+                            <img id="today-icon" alt="">
+                            <p id="temp"></p>
+                            <p id="humidity"></p>
+                            <p id="wind-speed"></p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row d-none" id="five-day-forecast">
+                    <div class="col-12">
+                        <h3>5-Day Forecast</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 forecast text-white m-2 shadow rounded" style="background-color: darkblue;"></div>
+                    <div class="col-md-2 forecast bg-secondary text-white m-2 shadow rounded"></div>
+                    <div class="col-md-2 forecast text-white m-2 shadow rounded" style="background-color: darkblue;"></div>
+                    <div class="col-md-2 forecast bg-secondary text-white m-2 shadow rounded"></div>
+                    <div class="col-md-2 forecast text-white m-2 shadow rounded" style="background-color: darkblue;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./script.js"></script>
+    <script>
+        initPage();
+    </script>
+</body>
+</html>
