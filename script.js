@@ -106,3 +106,7 @@ function initPage() {
       });
     });
   }
+
+  function tempConvert(K) {
+    return Math.floor((K - 273.15) * 1.8 + 32);
+  }
