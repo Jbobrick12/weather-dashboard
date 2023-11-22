@@ -110,3 +110,22 @@ function initPage() {
   function tempConvert(K) {
     return Math.floor((K - 273.15) * 1.8 + 32);
   }
+
+  searchEl.addEventListener("click", function () {
+    var searchCity = cityEl.value;
+    reqWeather(searchCity);
+    searchHistory.push(searchCity);
+    localStorage.setItem("search", JSON.stringify(searchHistory));
+    renderHistory();
+  });
+
+  cityEl.addEventListener("keypress", function (event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      var searchCity = cityEl.value;
+      reqWeather(searchCity);
+      searchHistory.push(searchCity);
+      localStorage.setItem("search", JSON.stringify(searchHistory));
+      renderHistory();
+    }
+  });
